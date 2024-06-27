@@ -6,6 +6,15 @@ public class Player {
     private boolean reached = false;
     private final String pointer = "I";
 
+    public Player() {
+
+    }
+
+    public Player(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+
     public void play(FinalPos finalPos) {
         int row = finalPos.getRow();
         int col = finalPos.getCol();

@@ -1,5 +1,8 @@
+import wellz.domain.Init;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Init init = new Init(0, 0, 1, 4);
+        init.init();
     }
 }
