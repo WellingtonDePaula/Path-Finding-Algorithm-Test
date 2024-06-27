@@ -13,4 +13,6 @@ public class ConsoleScanner {
         System.out.println("Digite quantas colunas a grade deve ter:");
         return scanner.nextInt();
     }
+
+
 }
