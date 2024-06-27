@@ -10,8 +10,34 @@ public class Player {
         this.col = grid.getCols()/2;
     }
 
-    public void play() {
+    public void play(Grid grid, Target target, boolean isDiagonal) {
+        if(this.row != target.getRow()) {
+            if (this.row < target.getRow()) {
+                this.row++;
+                if(!isDiagonal) {
+                    return;
+                }
+            } else {
+                this.row--;
+                if(!isDiagonal) {
+                    return;
+                }
+            }
+        }
 
+        if(this.col != target.getCol()) {
+            if (this.col < target.getCol()) {
+                this.col++;
+                if(!isDiagonal) {
+                    return;
+                }
+            } else {
+                this.col--;
+                if(!isDiagonal) {
+                    return;
+                }
+            }
+        }
     }
 
     public int getRow() {

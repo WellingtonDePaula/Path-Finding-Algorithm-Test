@@ -5,6 +5,7 @@ public class Grid {
     private final int rows;
     private final int cols;
     private String nullPointer;
+    private boolean reached = false;
 
     public Grid(int rows, int cols, String nullPointer) {
         this.nullPointer = nullPointer;
@@ -27,15 +28,17 @@ public class Grid {
                 grid[i][j] = nullPointer;
             }
         }
-        int row = player.getRow();
-        int col = player.getCol();
-        String icon = player.getIcon();
+        int row = target.getRow();
+        int col = target.getCol();
+        String icon = target.getIcon();
         grid[row][col] = icon;
 
-        row = target.getRow();
-        col = target.getCol();
-        icon = target.getIcon();
+        row = player.getRow();
+        col = player.getCol();
+        icon = player.getIcon();
         grid[row][col] = icon;
+
+        reached = checkReached(player, target);
     }
 
     public void draw() {
@@ -46,6 +49,14 @@ public class Grid {
             }
         }
         System.out.println();
+    }
+
+    private boolean checkReached(Player player, Target target) {
+        if(player.getRow() == target.getRow() && player.getCol() == target.getCol()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getRows() {
@@ -62,5 +73,9 @@ public class Grid {
 
     public String getNullPointer() {
         return this.nullPointer;
+    }
+
+    public boolean isReached() {
+        return this.reached;
     }
 }

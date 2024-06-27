@@ -18,8 +18,10 @@ public class GridTest01 {
         while(true) {
             grid.setGrid(player, target);
             grid.draw();
-            player.play();
-            break;
+            player.play(grid, target, false);
+            if(grid.isReached()) {
+                break;
+            }
         }
     }
 }
